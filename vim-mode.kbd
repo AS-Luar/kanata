@@ -85,8 +85,8 @@
 
 ;; ------------ Core Layer Controls ------------
 (defalias
-  ;; Caps Lock: tap for vim-mode, hold for super key
-  caps-tap-hold (tap-hold 200 200 (layer-switch vim-mode) lmet)
+  ;; Caps Lock: single tap for vim-mode, double tap for escape, hold for super key
+  caps-tap-hold (tap-hold-press 200 300 (tap-dance 300 ((layer-switch vim-mode) esc)) lmet)
   
   ;; F key: normal F, but Ctrl when Super is held
   f-conditional (fork f lctl (lmet rmet))
